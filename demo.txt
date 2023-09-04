@@ -1,0 +1,1 @@
+Perform git add, git commit and git push with one shortcut ctrl + alt + p / cmd + ctrl + p
