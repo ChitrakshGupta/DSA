@@ -28,6 +28,11 @@ for(int i=0; i<r; i++){
         cout<<arr[i][j]<<" ";
     }
     cout<<"\n";
+
+
+
+
+    
 }
     return 0;
 }
