@@ -2,39 +2,46 @@
 #include <limits.h>
 
 using namespace std;
-int binarySearch(int arr[],int n, int target){
+int missingEle(int arr[],int n){
     int start=0;
     int end=n-1;
     int mid=(start+end)/2;
+    int ans=-1;
     while(start<=end){
+        int diff=arr[mid]-mid;
 
         //found
-        if(arr[mid]==target){
-            return mid;
-            //return index of found element
-
-        }
-        else if(target<arr[mid]){
+        if(diff==1){
             //right me jao
-            start=mid+1;
-
-
+            end=mid-1;
+            
 
         }
+        
         else{
-            //left me jao
+            //ans store
+            ans=mid;
 
+            //left me jao
             end=mid-1;
         }
 
 //mid ko update
+// diyan rakho glti yha hi hot he
 
         mid=(start+end)/2;
         
     }
     // agr yha tk pauch gye 
     //kuch bhireturn nhi hua iska mtlb kuch output me nhi aya
-    return 1;
+
+    /// last case me code fat rha he 
+    if(ans+1==0){
+        return n+1;
+        
+    }
+
+    return ans+1;
 
 }
 int main(){
@@ -42,19 +49,19 @@ int main(){
 int n;
 cin>>n;
 int arr[n];
-int target=3;
+int target=30;
 for(int i=0; i<n; i++){
     cin>>arr[i];
 
 }
-int ansIndex=binarySearch(arr,n,target);
+int ansIndex=missingEle(arr,n);
 if (ansIndex!=-1)
 {
-    cout<<"index is "<<ansIndex;
+    cout<<"missing element "<<ansIndex;
     /* code */
 }
 else{
-    cout<<"not found";
+    cout<<"not missing";
 }
 
 
